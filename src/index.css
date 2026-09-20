@@ -19,17 +19,26 @@
 }
 
 /* ── Base ── */
-html { scroll-behavior: smooth; scroll-padding-top: 64px; }
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 64px;
+  overflow-x: hidden;
+}
 *, *::before, *::after { box-sizing: border-box; }
+* { min-width: 0; }
 
 body {
   margin: 0;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
   background: var(--bg);
   color: var(--fg);
   font-family: var(--body);
   font-size: 17px;
   line-height: 1.55;
 }
+img, svg, video, canvas { display: block; max-width: 100%; }
 
 a { color: inherit; text-decoration: none; }
 h1, h2, h3, h4, p { margin: 0; }
@@ -40,6 +49,7 @@ h2 { font-size: clamp(2.4rem, 6vw, 4.2rem); text-transform: uppercase; }
 /* ── Layout ── */
 .wrap { max-width: 1120px; margin: 0 auto; padding: 0 20px; }
 section { padding: 64px 0; }
+.wrap, .nav-inner, .hero-inner, .board > *, .md > *, .cards > *, .featured > *, .match-main { min-width: 0; }
 
 /* ── Typography helpers ── */
 .lede { color: var(--muted); max-width: 56ch; margin-top: 14px; }
@@ -435,7 +445,8 @@ nav {
 /* ── Tactical Board ── */
 .board-sec { background: var(--pitch); color: #F6F0E4; }
 .board-sec .lede { color: #B8C4DC; }
-.board { display: grid; grid-template-columns: 1fr 300px; gap: 28px; margin-top: 30px; align-items: start; }
+.board { display: grid; grid-template-columns: minmax(0,1fr) 300px; gap: 28px; margin-top: 30px; align-items: start; }
+.board > * { min-width: 0; }
 .pitch-svg { width: 100%; height: auto; display: block; background: #0A2150; box-shadow: 0 0 0 2px rgba(246,240,228,.5); }
 .pitch-ln { fill: none; stroke: #F6F0E4; stroke-opacity: .55; stroke-width: 2; }
 .pitch-stripe { fill: #F6F0E4; opacity: .04; }
@@ -680,7 +691,7 @@ footer h2 { color: var(--gold); font-size: 3rem; margin: 6px 0 8px; }
   .featured { grid-template-columns: 1fr; }
   .md, .corner, .pred, .board { grid-template-columns: 1fr; }
   .cards { grid-template-columns: 1fr; }
-  .feed, .squad-grid { grid-template-columns: repeat(2,1fr); }
+  .feed, .squad-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
   .steps { flex-direction: row; overflow-x: auto; }
   .step { min-width: 190px; }
   section { padding: 48px 0; }
@@ -688,4 +699,9 @@ footer h2 { color: var(--gold); font-size: 3rem; margin: 6px 0 8px; }
 @media (max-width: 520px) {
   .squad-grid { grid-template-columns: 1fr; }
   .hero-h1 { font-size: clamp(3.5rem, 16vw, 5rem); }
+  .wrap { padding: 0 16px; }
+  .nav-inner { padding: 0 16px; }
+  .feed { grid-template-columns: 1fr; }
+  .match-main { padding: 18px 16px; }
+  .team { font-size: clamp(1.2rem, 8vw, 1.8rem); }
 }
