@@ -1,0 +1,10 @@
+{
+  "description": "Ultimate Kombo is a football analysis and opinion site covering tactical breakdowns, matchday reaction, player analysis, and Barça-focused storytelling in a polished one-page experience.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}
