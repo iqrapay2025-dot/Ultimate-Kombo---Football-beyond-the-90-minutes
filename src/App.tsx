@@ -338,7 +338,7 @@ function Hero() {
 
         {/* Content (always on top, outside slides so it doesn't flicker) */}
         <div className="hero-inner">
-          <div className="who">Jumah</div>
+          <div className="who">Ultimate</div>
           <h1 className="hero-h1">
             The game,<span>through his eyes.</span>
           </h1>
@@ -1705,7 +1705,7 @@ function Predictions() {
             <div className="qmark" aria-hidden="true">&ldquo;</div>
             <div>
               <q>Football isn&apos;t just a game, it&apos;s a story. And I love telling it.</q>
-              <cite>— Jumah</cite>
+              <cite>— Ultimate</cite>
             </div>
           </div>
         </div>
